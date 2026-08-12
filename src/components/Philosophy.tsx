@@ -8,7 +8,8 @@ export default function Philosophy() {
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
         
         {/* Лява част: Кинематографичен цитат */}
-        <div className="w-full lg:w-1/2 sticky top-32">
+        {/* Корекция: добавени relative и lg: префикси пред sticky класовете */}
+        <div className="w-full lg:w-1/2 relative lg:sticky lg:top-32">
           <span className="text-xs uppercase tracking-[0.3em] text-neutral-500 block mb-8">
             Philosophy
           </span>
