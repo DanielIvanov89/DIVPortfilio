@@ -9,7 +9,7 @@ const productionPartners = [
   { name: 'Dizzart Studio', logo: '/logos/dizzart.png' },
 ];
 
-// Клиенти и брандове (16 на брой)
+// Клиенти и брандове (18 на брой)
 const brands = [
   { name: 'Visa', logo: '/logos/visa.png' },
   { name: 'Maserati', logo: '/logos/maserati.png' },
@@ -54,22 +54,24 @@ export default function Partners() {
           <h3 className="text-sm uppercase tracking-widest text-neutral-400 mb-8 border-b border-neutral-800 pb-4">
             Production Partners
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+          {/* Грид с до 7 квадратчета на ред */}
+          <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-3 md:gap-4">
             {productionPartners.map((partner, index) => (
               <div 
                 key={`prod-${index}`} 
-                className="group relative flex items-center justify-center h-40 md:h-48 rounded-2xl bg-neutral-200 hover:bg-white transition-colors duration-500 overflow-hidden cursor-default"
+                // Използваме aspect-square за перфектна форма
+                className="group relative flex items-center justify-center aspect-square rounded-xl bg-neutral-200 hover:bg-white transition-colors duration-500 overflow-hidden cursor-default"
               >
                 <img 
                   src={partner.logo} 
                   alt={partner.name} 
-                  className="w-full h-full object-contain p-8 md:p-12 mix-blend-multiply opacity-60 group-hover:opacity-100 transition-all duration-500 grayscale group-hover:grayscale-0"
+                  className="w-full h-full object-contain p-4 md:p-5 mix-blend-multiply opacity-60 group-hover:opacity-100 transition-all duration-500 grayscale group-hover:grayscale-0"
                   onError={(e) => {
                     (e.target as HTMLImageElement).style.display = 'none';
                     (e.target as HTMLImageElement).nextElementSibling?.classList.remove('hidden');
                   }}
                 />
-                <span className="hidden text-neutral-800 font-mono text-sm tracking-widest group-hover:text-black transition-colors duration-500 text-center px-2">
+                <span className="hidden text-neutral-800 font-mono text-[10px] tracking-widest group-hover:text-black transition-colors duration-500 text-center px-1">
                   {partner.name.toUpperCase()}
                 </span>
               </div>
@@ -82,22 +84,23 @@ export default function Partners() {
           <h3 className="text-sm uppercase tracking-widest text-neutral-400 mb-8 border-b border-neutral-800 pb-4">
             Brands We've Worked With
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+          {/* Същият грид с до 7 квадратчета на ред */}
+          <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-3 md:gap-4">
             {brands.map((brand, index) => (
               <div 
                 key={`brand-${index}`} 
-                className="group relative flex items-center justify-center h-32 rounded-2xl bg-neutral-200 hover:bg-white transition-colors duration-500 overflow-hidden cursor-default"
+                className="group relative flex items-center justify-center aspect-square rounded-xl bg-neutral-200 hover:bg-white transition-colors duration-500 overflow-hidden cursor-default"
               >
                 <img 
                   src={brand.logo} 
                   alt={brand.name} 
-                  className="w-full h-full object-contain p-6 mix-blend-multiply opacity-60 group-hover:opacity-100 transition-all duration-500 grayscale group-hover:grayscale-0"
+                  className="w-full h-full object-contain p-4 md:p-5 mix-blend-multiply opacity-60 group-hover:opacity-100 transition-all duration-500 grayscale group-hover:grayscale-0"
                   onError={(e) => {
                     (e.target as HTMLImageElement).style.display = 'none';
                     (e.target as HTMLImageElement).nextElementSibling?.classList.remove('hidden');
                   }}
                 />
-                <span className="hidden text-neutral-800 font-mono text-sm tracking-widest group-hover:text-black transition-colors duration-500 text-center px-2">
+                <span className="hidden text-neutral-800 font-mono text-[10px] tracking-widest group-hover:text-black transition-colors duration-500 text-center px-1">
                   {brand.name.toUpperCase()}
                 </span>
               </div>

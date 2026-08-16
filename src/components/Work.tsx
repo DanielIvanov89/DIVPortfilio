@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 
-// Дефинираме типа Project директно тук за по-лесно управление
+// Дефинираме типа Project
 type Project = {
   id: string | number;
   title: string;
@@ -15,9 +15,9 @@ type Project = {
   specs: string[];
 };
 
-// ПЪЛНИЯТ АРХИВ С НОВАТА ПОДРЕДБА
+// ПЪЛНИЯТ АРХИВ
 const projectsData: Project[] = [
-  // 1. ПИЕДЕСТАЛЪТ (КАН) - Индекс 0
+  // 1. ПИЕДЕСТАЛЪТ (КАН)
   {
     id: 'chronicles-inconvenient-truth',
     title: 'Chronicles of the inconvenient truth',
@@ -30,7 +30,7 @@ const projectsData: Project[] = [
     specs: ['Documentary', 'Cannes Winner', 'Storytelling', 'Color Grading']
   },
   
-  // 2. ТОП 3 ПРОЕКТА - Индекси 1, 2, 3 (Aya, Aqua Viva, National Team)
+  // ОСТАНАЛИТЕ ПРОЕКТИ
   {
     id: 'discover-aya',
     title: 'Discover Aya',
@@ -64,8 +64,6 @@ const projectsData: Project[] = [
     details: 'High-energy sports editing featuring dynamic transitions, intense sound design, and modern visual effects.',
     specs: ['Sports', 'Dynamic Editing', 'Sound Design']
   },
-
-  // 3. АРХИВЪТ - Всички останали проекти надолу (Индекс 4+)
   {
     id: 'visa-premium',
     title: 'Visa Premium Campaign',
@@ -125,7 +123,7 @@ const projectsData: Project[] = [
     id: 'mount-athos-impression',
     title: 'Mount Athos Impression',
     category: 'Cinema & TV',
-    year: '2023', // Можеш да смениш годината, ако е друга
+    year: '2023',
     image: '/projects/mount-athos-impression.jpg', 
     videoUrl: 'https://player.vimeo.com/video/849693771',
     description: 'Atmospheric cinematic impression from Mount Athos.',
@@ -148,7 +146,7 @@ const projectsData: Project[] = [
     title: 'Onyx Building Presentation',
     category: 'Commercial',
     year: '2024',
-    image: '/projects/onyx-building.jpg', // Качи thumbnail с това име в public/projects/
+    image: '/projects/onyx-building.jpg',
     videoUrl: 'https://www.youtube.com/embed/8an-COkIc1Q',
     description: 'Architectural and premium real estate promotional video.',
     details: 'Елегантен видео монтаж и презентация на модерна архитектура и недвижими имоти. Подчертаване на екстериорните детайли, интериорните пространства и луксозната атмосфера с плавни преходи и стилна цветова корекция.',
@@ -302,7 +300,7 @@ const projectsData: Project[] = [
     title: 'GYMSTREET Commercial',
     category: 'Commercial',
     year: '2025',
-    image: '/projects/gymstreet.jpg', // Качи thumbnail с име gymstreet.jpg в public/projects/
+    image: '/projects/gymstreet.jpg', 
     videoUrl: 'https://www.youtube.com/embed/2Y2Kk0R8yK8',
     description: 'Визуално въздействаща реклама за метаверс платформата Gymstreet.io.',
     details: 'Динамичен комерсиален монтаж, който съчетава реални лайфстайл и спортни кадри с 3D метаверс анимации, моушън графика и модерен саунд дизайн за представянето на иновативна виртуална среда.',
@@ -318,14 +316,13 @@ export default function Work() {
 
   const isAll = activeFilter === 'All';
   
-  // Разделяме масива за йерархичния дизайн
-  const featuredProject = projectsData[0]; // 1. Кан
-  const topThreeProjects = projectsData.slice(1, 4); // 2. Aya, Aqua Viva, National Team
+  // Филмът от Кан винаги е първи
+  const featuredProject = projectsData[0];
   
-  // 3. Ако сме на All - показваме от 4 надолу. Ако сме на филтър - показваме всички, които отговарят на филтъра.
-  const listProjects = isAll 
-    ? projectsData.slice(4) 
-    : projectsData.filter(project => project.category === activeFilter);
+  // Всички останали проекти подреждаме в грида според филтъра
+  const gridProjects = isAll 
+    ? projectsData.slice(1) // Ако е All, показва всички без първия
+    : projectsData.filter(project => project.category === activeFilter); // Ако има филтър, показва само тези от категорията
 
   return (
     <section id="work" className="relative w-full py-32 px-6 md:px-16 lg:px-24 bg-[#050505] text-neutral-200 overflow-hidden">
@@ -359,15 +356,13 @@ export default function Work() {
         {isAll && featuredProject && (
           <div 
             onClick={() => setSelectedProject(featuredProject)}
-            className="group relative w-full h-[60vh] md:h-[75vh] rounded-2xl overflow-hidden cursor-pointer border border-neutral-800 hover:border-[#D4AF37]/50 transition-colors duration-700 mb-6 shadow-2xl bg-neutral-950"
+            className="group relative w-full h-[60vh] md:h-[75vh] rounded-2xl overflow-hidden cursor-pointer border border-neutral-800 hover:border-[#D4AF37]/50 transition-colors duration-700 mb-12 shadow-2xl bg-neutral-950"
           >
-            {/* Замъглен бекграунд (Blur Effect) */}
             <div 
               className="absolute inset-0 bg-cover bg-center opacity-30 blur-2xl scale-110 transition-all duration-1000 group-hover:opacity-20"
               style={{ backgroundImage: `url(${featuredProject.image})` }}
             ></div>
 
-            {/* Самият плакат (object-contain) */}
             <img 
               src={featuredProject.image} 
               alt={featuredProject.title} 
@@ -375,7 +370,6 @@ export default function Work() {
               onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
             />
             
-            {/* Текстът и градиентът */}
             <div className="absolute inset-0 z-20 bg-gradient-to-t from-black via-black/40 to-transparent flex flex-col justify-end p-6 md:p-10 pointer-events-none">
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-xs font-mono uppercase tracking-widest text-[#D4AF37] border border-[#D4AF37]/30 bg-[#D4AF37]/10 px-4 py-1.5 rounded-full shadow-lg">
@@ -387,7 +381,6 @@ export default function Work() {
               <p className="text-lg text-neutral-300 max-w-2xl font-light hidden md:block">{featuredProject.description}</p>
             </div>
             
-            {/* Голям Play бутон */}
             <div className="absolute inset-0 z-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
               <div className="w-24 h-24 rounded-full bg-black/50 backdrop-blur-md border border-white/20 flex items-center justify-center pl-2">
                 <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
@@ -396,10 +389,10 @@ export default function Work() {
           </div>
         )}
 
-        {/* ТОП 3 ПРОЕКТА (Показват се само на филтър "All") */}
-        {isAll && topThreeProjects.length > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
-            {topThreeProjects.map(project => (
+        {/* ГРИД С ВСИЧКИ ОСТАНАЛИ ПРОЕКТИ */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {gridProjects.length > 0 ? (
+            gridProjects.map(project => (
               <div 
                 key={project.id}
                 onClick={() => setSelectedProject(project)}
@@ -412,62 +405,29 @@ export default function Work() {
                   onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
                 />
                 <div className="absolute inset-0 p-6 flex flex-col justify-between bg-gradient-to-t from-black/80 via-transparent to-transparent">
-                  <div className="flex justify-end">
+                  <div className="flex justify-between items-center">
                     <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-300 bg-black/60 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10">
                       {project.category}
                     </span>
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-400">
+                      {project.year}
+                    </span>
                   </div>
                   <div>
-                    <h4 className="text-xl font-light text-white">{project.title}</h4>
+                    <h4 className="text-xl font-light text-white leading-tight">{project.title}</h4>
                   </div>
                 </div>
-                {/* Малък Play бутон при ховър */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                {/* Play бутон */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                   <div className="w-14 h-14 rounded-full bg-black/50 backdrop-blur-sm border border-white/20 flex items-center justify-center pl-1">
                     <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
-        )}
-
-        {/* СПИСЪК С АРХИВА (Показва всички останали на "All" или филтрираните при клик) */}
-        <div className="flex flex-col border-t border-neutral-800 min-h-[300px]">
-          {isAll && <h3 className="text-xs uppercase tracking-[0.2em] text-neutral-500 my-8">Project Archive</h3>}
-          
-          {listProjects.length > 0 ? (
-            listProjects.map((project) => (
-              <div 
-                key={project.id}
-                onClick={() => setSelectedProject(project)}
-                className="group flex flex-col md:flex-row md:items-center justify-between py-5 border-b border-neutral-800/60 cursor-pointer hover:bg-neutral-900/40 transition-all duration-500 px-4 -mx-4 rounded-xl"
-              >
-                <div className="flex items-center gap-6">
-                  <div className="relative w-28 md:w-40 aspect-video rounded-lg overflow-hidden bg-neutral-950 shrink-0 border border-neutral-800 group-hover:border-neutral-500 transition-colors duration-500 shadow-lg">
-                    <img 
-                      src={project.image} 
-                      alt={project.title} 
-                      className="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" 
-                      onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/20 backdrop-blur-[2px]">
-                      <div className="w-8 h-8 rounded-full bg-black/60 border border-white/20 flex items-center justify-center pl-1">
-                        <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
-                      </div>
-                    </div>
-                  </div>
-                  <h3 className="text-lg md:text-2xl font-light text-neutral-300 group-hover:text-white transition-colors duration-300">{project.title}</h3>
-                </div>
-                <div className="flex items-center gap-4 md:gap-8 mt-4 md:mt-0 text-[10px] md:text-xs font-mono uppercase tracking-widest text-neutral-500 group-hover:text-neutral-300 transition-colors duration-300 ml-[136px] md:ml-0">
-                  <span className="bg-neutral-900/50 px-3 py-1 rounded-full border border-neutral-800">{project.category}</span>
-                  <span className="hidden md:inline">{project.year}</span>
-                </div>
-              </div>
             ))
           ) : (
-            <div className="py-20 text-center text-neutral-500 font-light">
-              Няма намерени проекти в тази категория.
+            <div className="col-span-1 md:col-span-3 py-20 text-center text-neutral-500 font-light text-lg">
+              There are no projects found in this category.
             </div>
           )}
         </div>

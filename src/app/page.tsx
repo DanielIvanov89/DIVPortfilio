@@ -10,10 +10,10 @@ export default function Home() {
   return (
     <main className="relative w-full min-h-screen bg-[#050505] text-neutral-200 selection:bg-neutral-800 selection:text-white">
       <Hero />
-      <Philosophy /> {/* Цитатът вече е тук */}
+      <Philosophy /> 
       <Credentials />
-      <Timeline />
-      <Work />
+      <Work />     {/* Вече е директно под Credentials & Arsenal */}
+      <Timeline /> {/* Преместен под видеата */}
       <Partners />
       <Contact />
     </main>
