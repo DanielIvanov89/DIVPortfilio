@@ -50,7 +50,7 @@ export default function Hero() {
             </h2>
             
             <p>
-              — a video editor and post-production director with over 14 years of professional experience and a strong portfolio of high-end projects behind me.
+              a video editor and post-production director with over 14 years of professional experience and a strong portfolio of high-end projects behind me.
             </p>
             
             <p>
