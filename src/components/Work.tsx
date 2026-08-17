@@ -308,7 +308,8 @@ const projectsData: Project[] = [
   },
 ];
 
-const categories = ['All', 'Commercial', 'Corporate', 'Cinema & TV', 'Documentary', 'AI & R&D'];
+// ТУК Е ПРЕДИШНИЯТ СПИСЪК С ФИЛТРИ, ОТ КОЙТО ПРЕМАХНАХМЕ 'AI & R&D'
+const categories = ['All', 'Commercial', 'Corporate', 'Cinema & TV', 'Documentary'];
 
 export default function Work() {
   const [activeFilter, setActiveFilter] = useState('All');
