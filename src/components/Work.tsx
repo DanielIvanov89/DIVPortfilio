@@ -375,7 +375,7 @@ export default function Work() {
                 <span className="text-xs font-mono uppercase tracking-widest text-[#D4AF37] border border-[#D4AF37]/30 bg-[#D4AF37]/10 px-4 py-1.5 rounded-full shadow-lg">
                   Cannes Award Winner
                 </span>
-                <span className="text-xs font-mono text-neutral-400">{featuredProject.year}</span>
+                {/* ГОДИНАТА Е ПРЕМАХНАТА ОТ ТУК */}
               </div>
               <h3 className="text-3xl md:text-4xl font-light text-white mb-3">{featuredProject.title}</h3>
               <p className="text-lg text-neutral-300 max-w-2xl font-light hidden md:block">{featuredProject.description}</p>
@@ -409,9 +409,7 @@ export default function Work() {
                     <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-300 bg-black/60 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10">
                       {project.category}
                     </span>
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-400">
-                      {project.year}
-                    </span>
+                    {/* ГОДИНАТА Е ПРЕМАХНАТА ОТ ТУК */}
                   </div>
                   <div>
                     <h4 className="text-xl font-light text-white leading-tight">{project.title}</h4>
