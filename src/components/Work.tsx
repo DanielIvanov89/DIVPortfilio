@@ -32,6 +32,62 @@ const projectsData: Project[] = [
   
   // ОСТАНАЛИТЕ ПРОЕКТИ
   {
+    id: 'betano-future-stars',
+    title: 'Betano Future Stars',
+    category: 'Commercial',
+    year: '2026',
+    // Директен тъмбнейл от YouTube:
+    image: 'https://img.youtube.com/vi/A5nKDfRA2Ok/maxresdefault.jpg', 
+    videoUrl: 'https://www.youtube.com/embed/A5nKDfRA2Ok',
+    description: 'Inspirational sports campaign for Betano Future Stars.',
+    details: 'Мотивиращ и високоенергиен спортен монтаж, който проследява пътя към величието, отдадеността в тренировките и изграждането на шампиони.',
+    specs: ['Commercial', 'Sports', 'Dynamic Editing', 'Sound Design']
+  },
+  {
+    id: 'eko-racing-choy',
+    title: 'EKO Racing 100 - Мартин Чой',
+    category: 'Commercial',
+    year: '2026',
+    image: 'https://img.youtube.com/vi/dZ7P_dB4Mfs/maxresdefault.jpg', 
+    videoUrl: 'https://www.youtube.com/embed/dZ7P_dB4Mfs',
+    description: 'Commercial featuring 34-time motorcycle champion Martin Choy.',
+    details: 'Динамична реклама, фокусирана върху максималната производителност, скоростта и спортния дух, съчетани с премиум брандинга на ЕКО.',
+    specs: ['Commercial', 'Automotive', 'Dynamic Editing']
+  },
+  {
+    id: 'eko-vezenkov-diesel',
+    title: 'EKO Diesel Double Filtered - Александър Везенков',
+    category: 'Commercial',
+    year: '2026',
+    image: 'https://img.youtube.com/vi/NOudvuj75x8/maxresdefault.jpg', 
+    videoUrl: 'https://www.youtube.com/embed/NOudvuj75x8',
+    description: 'Commercial featuring Euroleague basketball star Alexander Vezenkov.',
+    details: 'Стилен и ефективен рекламен монтаж, обвързващ резултатите и високите цели в спорта с качеството на продуктите на ЕКО.',
+    specs: ['Commercial', 'Sports', 'Color Grading']
+  },
+  {
+    id: 'eko-vezenkov-guarantee',
+    title: 'Гаранция ЕКО - Александър Везенков',
+    category: 'Commercial',
+    year: '2026',
+    image: 'https://img.youtube.com/vi/oTiKyhi8FAI/maxresdefault.jpg', 
+    videoUrl: 'https://www.youtube.com/embed/oTiKyhi8FAI',
+    description: 'Brand guarantee commercial with Alexander Vezenkov.',
+    details: 'Изчистен рекламен клип с акцент върху доверието, честната игра и личното отношение, подкрепени от въздействаща цветова корекция.',
+    specs: ['Commercial', 'Brand Identity', 'Color Grading']
+  },
+  {
+    id: 'cinema-city-halloween-2026',
+    title: 'Cinema City Halloween 2026 Trailer',
+    category: 'Cinema & TV',
+    year: '2026',
+    image: 'https://img.youtube.com/vi/9QCBSewbHVQ/maxresdefault.jpg',
+    videoUrl: 'https://www.youtube.com/embed/9QCBSewbHVQ',
+    description: 'Theatrical Halloween promo campaign for 2026.',
+    details: 'Майсторски трейлър монтаж с натрупване на напрежение, резки кът-ове и въздействащ хорър саунд дизайн, специално създаден за големия екран.',
+    specs: ['Trailer', 'Horror', 'Sound Design', 'Cinematic']
+  },
+  {
     id: 'discover-aya',
     title: 'Discover Aya',
     category: 'Commercial',
