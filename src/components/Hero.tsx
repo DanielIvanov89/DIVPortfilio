@@ -46,7 +46,7 @@ export default function Hero() {
           {/* Текст и Биография */}
           <div className="flex flex-col gap-6 text-neutral-300 font-light text-sm md:text-base leading-relaxed">
             <h2 className="text-2xl md:text-3xl text-white font-light">
-              Hi, I'm <span className="font-medium">Dany Ivanov</span>
+              Hi, I'm <span className="font-medium">Danny Ivanov</span>
             </h2>
             
             <p>
