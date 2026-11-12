@@ -25,7 +25,7 @@ export default function AboutMe() {
         <div className="w-full md:w-2/3 flex flex-col gap-8 text-neutral-400 font-light text-base md:text-lg leading-relaxed pt-2">
           <div>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-light text-white mb-6">
-              Hi, I'm <span className="font-medium">Dany Ivanov</span>
+              Hi, I'm <span className="font-medium">Danny Ivanov</span>
             </h1>
             <p className="mb-4">
               — a video editor and post-production director with over 14 years of professional experience and a strong portfolio of high-end projects behind me.
