@@ -14,7 +14,7 @@ export default function AboutMe() {
           <div className="relative w-64 h-64 md:w-full md:aspect-square rounded-2xl overflow-hidden border border-neutral-800 grayscale hover:grayscale-0 transition duration-500">
             <Image 
               src="/profile.jpg" 
-              alt="Dany Ivanov - Profile" 
+              alt="Danny Ivanov - Profile" 
               fill
               className="object-cover"
             />
