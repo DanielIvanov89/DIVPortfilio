@@ -61,7 +61,7 @@ export default function Contact() {
               Instagram
             </a>
             <a 
-              href="www.youtube.com/@TheDanielIvanov?sub_confirmation=1" 
+              href="https://www.youtube.com/@TheDanielIvanov?sub_confirmation=1" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="hover:text-white transition-colors"
